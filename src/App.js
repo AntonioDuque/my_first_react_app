@@ -6,6 +6,7 @@ import MovieCard from "./MovieCard";
 
 const API_URL = "http://www.omdbapi.com?apikey=73cde7a2";
 
+// Objecto extraido de la API
 // const movie1 = {
 //   Title: "Italian Spiderman",
 //   Year: "2007",
@@ -16,10 +17,12 @@ const API_URL = "http://www.omdbapi.com?apikey=73cde7a2";
 // };
 
 const App = () => {
-  
+   
+   //Practicar 
     const [searchTerm, setSearchTerm] = useState("");
     const [movies, setMovies] = useState([]);
 
+  //Función asíncrona que me permite mapiar la data de la API  
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
@@ -27,6 +30,7 @@ const App = () => {
     setMovies(data.Search);
   };
 
+  //Valor de búsqueda inicial
   useEffect(() => {
     searchMovies("Spiderman");
   }, []);
@@ -62,10 +66,7 @@ const App = () => {
             </div>
         )}
         
-
-            
-
-
+          
     </div>
   );
 };
